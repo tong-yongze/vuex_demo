@@ -5,8 +5,10 @@
 
     <a-list bordered :dataSource="infolist" class="dt_list">
       <a-list-item slot="renderItem" slot-scope="item">
-        <!-- 复选框 -->
-        <a-checkbox :checked=item.done @change="(e)=>{cbStatusChanged(e,item.id)}">{{ item.info }}</a-checkbox>
+        <!-- 复选框  第一种是普遍框架的用法 -->
+        <!-- <a-checkbox :checked=item.done @change="(e)=>{cbStatusChanged(e,item.id)}">{{ item.info }}</a-checkbox> -->
+        <!-- 第二种是react 写法 -->
+        <a-checkbox :checked=item.done @change="cbStatusChanged($event,item.id)">{{ item.info }}</a-checkbox>
         <!-- 删除链接 -->
         <a slot="actions" @click="removeByItemId(item.id)">删除</a>
       </a-list-item>
